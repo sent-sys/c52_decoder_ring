@@ -4,10 +4,27 @@
 // of the anonymous function on line 6
 
 const caesarModule = (function () {
-  // you can add any code you want within this function scope
-
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"  
   function caesar(input, shift, encode = true) {
-    // your solution code here
+    if(shift == 0 || shift < -25 || shift > 25) return false
+    if(encode){
+      let before = input.toLowerCase()
+      let output = ''
+      for(let letter in before){
+        const alphabetIndex = alphabet.indexOf(before[letter])
+        output += alphabet[alphabetIndex + shift]
+      }
+      return output
+    }
+    else{
+      let before = input.toLowerCase()
+      let output = ''
+      for(let letter in before){
+        const alphabetIndex = alphabet.indexOf(before[letter])
+        output += alphabet[alphabetIndex - shift]
+      }
+      return output
+    }
   }
 
   return {
