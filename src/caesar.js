@@ -12,7 +12,8 @@ const caesarModule = (function () {
       let output = ''
       for(let letter in before){
         const alphabetIndex = alphabet.indexOf(before[letter])
-        output += alphabet[alphabetIndex + shift]
+        if(alphabet[alphabetIndex + shift]) output += alphabet[alphabetIndex + shift]
+        else output += alphabet[alphabetIndex + shift - 26]
       }
       return output
     }
@@ -21,12 +22,12 @@ const caesarModule = (function () {
       let output = ''
       for(let letter in before){
         const alphabetIndex = alphabet.indexOf(before[letter])
-        output += alphabet[alphabetIndex - shift]
+        if(alphabet[alphabetIndex + shift]) output += alphabet[alphabetIndex - shift]
+        else output += alphabet[alphabetIndex - shift - 26]
       }
       return output
     }
   }
-
   return {
     caesar,
   };

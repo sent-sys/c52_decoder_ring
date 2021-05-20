@@ -18,4 +18,9 @@ describe("caesarModule()", () => {
         const expected = 'abcd'
         expect(actual).to.equal(expected)
     })
+    it("should return correct encryption even when shift exceeds alphabet limit (z + 1 = a)", () => {
+        const actual = caesar('zzzz', 1, true)
+        const expected = 'aaaa'
+        expect(actual).to.equal(expected)
+    })
 })
