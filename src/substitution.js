@@ -4,10 +4,18 @@
 // of the anonymous function on line 6
 
 const substitutionModule = (function () {
-  // you can add any code you want within this function scope
+  const normAlpha = "abcdefghijklmnopqrstuvwxyz"
 
   function substitution(input, alphabet, encode = true) {
-    // your solution code here
+    if(!alphabet.length == 26) return false
+    if(encode){
+      let output = ''
+      let before = input.toLowerCase()
+      
+    }
+    else {
+
+    }
   }
 
   return {

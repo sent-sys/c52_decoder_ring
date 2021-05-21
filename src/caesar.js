@@ -11,9 +11,13 @@ const caesarModule = (function () {
       let before = input.toLowerCase()
       let output = ''
       for(let letter in before){
-        const alphabetIndex = alphabet.indexOf(before[letter])
-        if(alphabet[alphabetIndex + shift]) output += alphabet[alphabetIndex + shift]
-        else output += alphabet[alphabetIndex + shift - 26]
+        if(!alphabet.includes(before[letter])) output += before[letter]
+        else{
+          const alphabetIndex = alphabet.indexOf(before[letter])
+          if(alphabet[alphabetIndex + shift]) output += alphabet[alphabetIndex + shift]
+          if((alphabetIndex + shift) < 0) output += alphabet[alphabetIndex + shift + 26]
+          if((alphabetIndex + shift) > 25) output += alphabet[alphabetIndex + shift - 26]
+        }
       }
       return output
     }
@@ -21,9 +25,13 @@ const caesarModule = (function () {
       let before = input.toLowerCase()
       let output = ''
       for(let letter in before){
-        const alphabetIndex = alphabet.indexOf(before[letter])
-        if(alphabet[alphabetIndex + shift]) output += alphabet[alphabetIndex - shift]
-        else output += alphabet[alphabetIndex - shift - 26]
+        if(!alphabet.includes(before[letter])) output += before[letter]
+        else{
+          const alphabetIndex = alphabet.indexOf(before[letter])
+          if(alphabet[alphabetIndex - shift]) output += alphabet[alphabetIndex - shift]
+          if((alphabetIndex - shift) < 0) output += alphabet[alphabetIndex - shift + 26]
+          if((alphabetIndex - shift) > 25) output += alphabet[alphabetIndex - shift - 26]
+        }
       }
       return output
     }
