@@ -4,7 +4,7 @@
 // of the anonymous function on line 6
 
 const caesarModule = (function () {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"  
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
   function caesar(input, shift, encode = true) {
     if(shift == 0 || shift < -25 || shift > 25) return false
     if(encode){
