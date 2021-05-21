@@ -2,6 +2,10 @@ const {polybius} = require("../src/polybius")
 const expect = require("chai").expect
 
 describe("polybius()", () => {
+    it("should return false if length of numbers given is odd", () => {
+        const actual = polybius('11111', false)
+        expect(actual).to.equal(false)
+    })
     it("should return correctly encrypted string when encoding = true", () => {
         const actual = polybius('aaaa', true)
         const expected = '11111111'
